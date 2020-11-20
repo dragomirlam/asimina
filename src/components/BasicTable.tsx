@@ -12,6 +12,9 @@ const useStyles = makeStyles({
   table: {
     minWidth: 650,
   },
+  tableExtraData: {
+    width: '50%'
+  }
 });
 
 function createData(name: string, calories: number, fat: number, carbs: number, protein: number) {
@@ -27,7 +30,7 @@ export default function BasicTable() {
   const classes = useStyles();
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} className={classes.tableExtraData}>
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
