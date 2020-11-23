@@ -8,12 +8,16 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 
-const data = fetch("http://localhost:3000/data")
-                .then( res => {
-                  return res.json();
-                });
+function getData(): Promise<{}> {
+  return fetch('http://localhost:3000/data')
+                            .then(res => res.json())
+                            .then(res => {
+                              return res as Object})
+}
 
-console.log(data);
+getData().then(data => {
+  console.log(data);
+})
 
 const useStyles = makeStyles({
   table: {
